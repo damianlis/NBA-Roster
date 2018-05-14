@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url("http://3.bp.blogspot.com/-VS4_8uqmrfw/VjvJ_JdY5OI/AAAAAAAAh4M/rVKIkPktjO4/s1600/hd-quality-basketball-court-wallpaper-20587-1600x900px-hd.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .MainContainer {
   display: flex;
   width: 90vw;
@@ -37,9 +43,7 @@
   thead th {
     padding: 1em;
     border-bottom: 1px solid black;
-    &:last-child {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
   tbody tr {
     border-bottom: 1px solid black;
@@ -59,7 +63,7 @@
 
 .PlayerCard {
   width: 20vw;
-  background-color: #34495E;
+  background-color: #34495e;
   background-image: url("https://i1.wp.com/sflbasketball.com/wp-content/uploads/2014/09/background-basketball-court.jpg?ssl=1");
   background-position: center;
   background-size: cover;
@@ -120,7 +124,7 @@
   background-position: center;
   margin: 0.8em;
   border: 1px solid black;
-  box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 3px 6px #ccc;
   &:hover {
     cursor: pointer;
     transform: scale(2, 2);
@@ -132,7 +136,7 @@
   margin: 0 auto;
   margin-top: 40%;
   border: 16px solid #f3f3f3;
-  border-top: 16px solid #34495E;
+  border-top: 16px solid #34495e;
   border-radius: 50%;
   width: 120px;
   height: 120px;

@@ -55,7 +55,7 @@ class BottomContainer extends React.Component {
                             <h2>Wzrost: {Math.round(this.props.player.Height * 2.54)} cm</h2>
                             <h2>Waga: {Math.round(this.props.player.Weight * 0.45)} kg</h2>
                             <p>Miejsce urodzenia: {this.props.player.BirthState}</p>
-                            <p>Sezon: {this.props.player.Experience}</p>
+                            <p>Sezon: {this.props.player.Experience + 1}</p>
                         </div>
                     </div>
                 )

@@ -11,9 +11,13 @@ class TableRoster extends React.Component {
     }
   };
 
+  componentDidMount() {
+    $(".PlayersTable").tablesorter();
+  }
+
   render() {
     return (
-      <table className="PlayersTable">
+      <table className="PlayersTable tablesorter">
         <thead>
           <tr>
             <th>#</th>

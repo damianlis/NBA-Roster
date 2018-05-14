@@ -22771,7 +22771,7 @@ exports.default = MainContainer;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -22789,48 +22789,49 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var SideContainer = function (_React$Component) {
-    _inherits(SideContainer, _React$Component);
+  _inherits(SideContainer, _React$Component);
 
-    function SideContainer(props) {
-        _classCallCheck(this, SideContainer);
+  function SideContainer(props) {
+    _classCallCheck(this, SideContainer);
 
-        var _this = _possibleConstructorReturn(this, (SideContainer.__proto__ || Object.getPrototypeOf(SideContainer)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (SideContainer.__proto__ || Object.getPrototypeOf(SideContainer)).call(this, props));
 
-        _this.handleTeamKeyAfterClick = function (event) {
+    _this.handleTeamKeyAfterClick = function (event) {
+      if (typeof _this.props.teamKey === "function") {
+        _this.props.teamKey(event.currentTarget.dataset.key);
+      }
+    };
 
-            if (typeof _this.props.teamKey === "function") {
-                _this.props.teamKey(event.currentTarget.dataset.key);
-            }
-        };
+    return _this;
+  }
 
-        return _this;
+  _createClass(SideContainer, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      if (!this.props.teamsData) {
+        return null;
+      } else {
+        var teamsArr = this.props.teamsData;
+        return _react2.default.createElement(
+          "div",
+          { className: "SideContainer" },
+          teamsArr.map(function (team) {
+            return _react2.default.createElement("div", {
+              className: "Logos",
+              key: team.Key,
+              "data-key": team.Key,
+              onClick: _this2.handleTeamKeyAfterClick,
+              style: { backgroundImage: "url(" + team.WikipediaLogoUrl }
+            });
+          })
+        );
+      }
     }
+  }]);
 
-    _createClass(SideContainer, [{
-        key: "render",
-        value: function render() {
-            var _this2 = this;
-
-            if (!this.props.teamsData) {
-                return null;
-            } else {
-                var teamsArr = this.props.teamsData;
-                return _react2.default.createElement(
-                    "div",
-                    { className: "SideContainer" },
-                    teamsArr.map(function (team) {
-                        return _react2.default.createElement("div", { className: "Logos",
-                            key: team.Key,
-                            "data-key": team.Key,
-                            onClick: _this2.handleTeamKeyAfterClick,
-                            style: { backgroundImage: "url(" + team.WikipediaLogoUrl } });
-                    })
-                );
-            }
-        }
-    }]);
-
-    return SideContainer;
+  return SideContainer;
 }(_react2.default.Component);
 
 exports.default = SideContainer;
@@ -23011,13 +23012,18 @@ var TableRoster = function (_React$Component) {
   }
 
   _createClass(TableRoster, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      $(".PlayersTable").tablesorter();
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
       return _react2.default.createElement(
         "table",
-        { className: "PlayersTable" },
+        { className: "PlayersTable tablesorter" },
         _react2.default.createElement(
           "thead",
           null,
@@ -23280,7 +23286,7 @@ var BottomContainer = function (_React$Component) {
                                 "p",
                                 null,
                                 "Sezon: ",
-                                this.props.player.Experience
+                                this.props.player.Experience + 1
                             )
                         )
                     );
@@ -23353,7 +23359,7 @@ exports = module.exports = __webpack_require__(194)(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Kalam);", ""]);
 
 // module
-exports.push([module.i, "* {\n  font-family: \"Kalam\", cursive;\n  box-sizing: border-box; }\n\n.MainContainer {\n  display: flex;\n  width: 90vw;\n  justify-content: space-between;\n  margin-top: 5vh;\n  margin-right: 5vw;\n  margin-left: 5vw; }\n\n.SideContainer {\n  display: flex;\n  flex-wrap: wrap;\n  width: 30vw;\n  height: 50vh;\n  justify-content: space-around; }\n\n.MiddleContainer {\n  width: 40vw;\n  position: relative; }\n\n.PlayersTable {\n  border-collapse: collapse;\n  font-size: 16px;\n  text-align: center;\n  margin: 0 auto;\n  border-radius: 15px;\n  background-color: #d1d1d1; }\n  .PlayersTable thead th {\n    padding: 1em;\n    border-bottom: 1px solid black; }\n    .PlayersTable thead th:last-child {\n      cursor: pointer; }\n  .PlayersTable tbody tr {\n    border-bottom: 1px solid black; }\n    .PlayersTable tbody tr:last-child {\n      border-bottom: none; }\n    .PlayersTable tbody tr:hover {\n      cursor: pointer;\n      background-color: #bebebe;\n      font-weight: bold; }\n    .PlayersTable tbody tr td {\n      padding: 0.5em; }\n\n.PlayerCard {\n  width: 20vw;\n  background-color: #34495E;\n  background-image: url(\"https://i1.wp.com/sflbasketball.com/wp-content/uploads/2014/09/background-basketball-court.jpg?ssl=1\");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  border: 1px solid black;\n  border-radius: 20px;\n  margin: 0 auto;\n  margin-top: -39em;\n  margin-left: 8vw;\n  position: absolute; }\n  .PlayerCard button {\n    display: block;\n    margin-left: auto;\n    margin-right: 10px;\n    margin-top: 10px;\n    padding: 0.35em 1.2em;\n    border: 0.1em solid black;\n    border-radius: 0.12em;\n    text-decoration: none;\n    font-weight: 300;\n    color: black;\n    text-align: center;\n    transition: all 0.2s; }\n    .PlayerCard button:hover {\n      cursor: pointer;\n      color: #000000;\n      background-color: #ffffff; }\n\n.PlayerFoto {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0 auto; }\n\n.PlayerInfo {\n  text-align: center; }\n  .PlayerInfo p {\n    font-size: 20px; }\n\n.Logos {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0.8em;\n  border: 1px solid black;\n  box-shadow: 3px 3px 5px 6px #ccc; }\n  .Logos:hover {\n    cursor: pointer;\n    transform: scale(2, 2);\n    transition: 0.3s transform; }\n\n.Loader {\n  margin: 0 auto;\n  margin-top: 40%;\n  border: 16px solid #f3f3f3;\n  border-top: 16px solid #34495E;\n  border-radius: 50%;\n  width: 120px;\n  height: 120px;\n  animation: spin 2s linear infinite; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.bounceInDown {\n  -webkit-animation-name: bounceInDown;\n  animation-name: bounceInDown;\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both; }\n\n@-webkit-keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n\n@keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n", ""]);
+exports.push([module.i, "* {\n  font-family: \"Kalam\", cursive;\n  box-sizing: border-box; }\n\nbody {\n  background-image: url(\"http://3.bp.blogspot.com/-VS4_8uqmrfw/VjvJ_JdY5OI/AAAAAAAAh4M/rVKIkPktjO4/s1600/hd-quality-basketball-court-wallpaper-20587-1600x900px-hd.jpg\");\n  background-repeat: no-repeat;\n  background-size: cover; }\n\n.MainContainer {\n  display: flex;\n  width: 90vw;\n  justify-content: space-between;\n  margin-top: 5vh;\n  margin-right: 5vw;\n  margin-left: 5vw; }\n\n.SideContainer {\n  display: flex;\n  flex-wrap: wrap;\n  width: 30vw;\n  height: 50vh;\n  justify-content: space-around; }\n\n.MiddleContainer {\n  width: 40vw;\n  position: relative; }\n\n.PlayersTable {\n  border-collapse: collapse;\n  font-size: 16px;\n  text-align: center;\n  margin: 0 auto;\n  border-radius: 15px;\n  background-color: #d1d1d1; }\n  .PlayersTable thead th {\n    padding: 1em;\n    border-bottom: 1px solid black;\n    cursor: pointer; }\n  .PlayersTable tbody tr {\n    border-bottom: 1px solid black; }\n    .PlayersTable tbody tr:last-child {\n      border-bottom: none; }\n    .PlayersTable tbody tr:hover {\n      cursor: pointer;\n      background-color: #bebebe;\n      font-weight: bold; }\n    .PlayersTable tbody tr td {\n      padding: 0.5em; }\n\n.PlayerCard {\n  width: 20vw;\n  background-color: #34495e;\n  background-image: url(\"https://i1.wp.com/sflbasketball.com/wp-content/uploads/2014/09/background-basketball-court.jpg?ssl=1\");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  border: 1px solid black;\n  border-radius: 20px;\n  margin: 0 auto;\n  margin-top: -39em;\n  margin-left: 8vw;\n  position: absolute; }\n  .PlayerCard button {\n    display: block;\n    margin-left: auto;\n    margin-right: 10px;\n    margin-top: 10px;\n    padding: 0.35em 1.2em;\n    border: 0.1em solid black;\n    border-radius: 0.12em;\n    text-decoration: none;\n    font-weight: 300;\n    color: black;\n    text-align: center;\n    transition: all 0.2s; }\n    .PlayerCard button:hover {\n      cursor: pointer;\n      color: #000000;\n      background-color: #ffffff; }\n\n.PlayerFoto {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0 auto; }\n\n.PlayerInfo {\n  text-align: center; }\n  .PlayerInfo p {\n    font-size: 20px; }\n\n.Logos {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0.8em;\n  border: 1px solid black;\n  box-shadow: 3px 3px 3px 6px #ccc; }\n  .Logos:hover {\n    cursor: pointer;\n    transform: scale(2, 2);\n    transition: 0.3s transform; }\n\n.Loader {\n  margin: 0 auto;\n  margin-top: 40%;\n  border: 16px solid #f3f3f3;\n  border-top: 16px solid #34495e;\n  border-radius: 50%;\n  width: 120px;\n  height: 120px;\n  animation: spin 2s linear infinite; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.bounceInDown {\n  -webkit-animation-name: bounceInDown;\n  animation-name: bounceInDown;\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both; }\n\n@-webkit-keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n\n@keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n", ""]);
 
 // exports
 
