@@ -20,6 +20,10 @@ class BottomContainer extends React.Component {
         }, 3000)
     }
 
+    componentWillUnmount() {
+        clearInterval(this.intervalID)
+    }
+
     closeCard = () => {
         this.setState({
             isClosed: true

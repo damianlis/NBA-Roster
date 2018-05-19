@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function(){
         constructor(props) {
             super(props)
             this.state = {
-                teamsData: []
+                teamsData: [],
+                newsData: []
             }
         }
 

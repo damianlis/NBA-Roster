@@ -11,15 +11,22 @@ class TableRoster extends React.Component {
     }
   };
 
+  tableSort = event => {
+    let objName = event.currentTarget.dataset.objname;
+    if(typeof this.props.tableSort === "function") {
+      this.props.tableSort(objName)
+    }    
+  }
+
   render() {
     return (
       <table className="PlayersTable">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Pozycja</th>
+            <th data-objname="Jersey" onClick={this.tableSort}>#</th>
+            <th data-objname="FirstName" onClick={this.tableSort}>Imię</th>
+            <th data-objname="LastName" onClick={this.tableSort}>Nazwisko</th>
+            <th data-objname="Position" onClick={this.tableSort}>Pozycja</th>
           </tr>
         </thead>
         <tbody>

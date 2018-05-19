@@ -10134,7 +10134,8 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             _this.state = {
-                teamsData: []
+                teamsData: [],
+                newsData: []
             };
             return _this;
         }
@@ -22684,7 +22685,7 @@ module.exports = ReactDOMInvalidARIAHook;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -22701,6 +22702,10 @@ var _MiddleContainer = __webpack_require__(188);
 
 var _MiddleContainer2 = _interopRequireDefault(_MiddleContainer);
 
+var _NewsContainer = __webpack_require__(197);
+
+var _NewsContainer2 = _interopRequireDefault(_NewsContainer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22710,55 +22715,61 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var MainContainer = function (_React$Component) {
-    _inherits(MainContainer, _React$Component);
+  _inherits(MainContainer, _React$Component);
 
-    function MainContainer(props) {
-        _classCallCheck(this, MainContainer);
+  function MainContainer(props) {
+    _classCallCheck(this, MainContainer);
 
-        var _this = _possibleConstructorReturn(this, (MainContainer.__proto__ || Object.getPrototypeOf(MainContainer)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (MainContainer.__proto__ || Object.getPrototypeOf(MainContainer)).call(this, props));
 
-        _this.handleTeamKey = function (teamKey) {
-            _this.setState({
-                chosenTeam: teamKey
-            });
-        };
+    _this.handleTeamKey = function (teamKey) {
+      _this.setState({
+        chosenTeam: teamKey
+      });
+    };
 
-        _this.state = {
-            chosenTeam: ""
-        };
-        return _this;
+    _this.state = {
+      chosenTeam: ""
+    };
+    return _this;
+  }
+
+  _createClass(MainContainer, [{
+    key: "render",
+    value: function render() {
+      if (!this.props.teamsData) {
+        return null;
+      } else {
+        var easternTeams = [];
+        var westernTeams = [];
+
+        this.props.teamsData.forEach(function (team) {
+          if (team.Conference == "Eastern") {
+            easternTeams.push(team);
+          } else {
+            westernTeams.push(team);
+          }
+        });
+
+        return _react2.default.createElement(
+          "div",
+          { className: "MainContainer" },
+          _react2.default.createElement(_SideContainer2.default, {
+            teamsData: westernTeams,
+            teamKey: this.handleTeamKey
+          }),
+          _react2.default.createElement(_MiddleContainer2.default, { chosenTeam: this.state.chosenTeam }),
+          _react2.default.createElement(_SideContainer2.default, {
+            teamsData: easternTeams,
+            teamKey: this.handleTeamKey
+          }),
+          _react2.default.createElement(_NewsContainer2.default, null)
+        );
+      }
     }
+  }]);
 
-    _createClass(MainContainer, [{
-        key: 'render',
-        value: function render() {
-            if (!this.props.teamsData) {
-                return null;
-            } else {
-
-                var easternTeams = [];
-                var westernTeams = [];
-
-                this.props.teamsData.forEach(function (team) {
-                    if (team.Conference == "Eastern") {
-                        easternTeams.push(team);
-                    } else {
-                        westernTeams.push(team);
-                    }
-                });
-
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'MainContainer' },
-                    _react2.default.createElement(_SideContainer2.default, { teamsData: westernTeams, teamKey: this.handleTeamKey }),
-                    _react2.default.createElement(_MiddleContainer2.default, { chosenTeam: this.state.chosenTeam }),
-                    _react2.default.createElement(_SideContainer2.default, { teamsData: easternTeams, teamKey: this.handleTeamKey })
-                );
-            }
-        }
-    }]);
-
-    return MainContainer;
+  return MainContainer;
 }(_react2.default.Component);
 
 exports.default = MainContainer;
@@ -22794,23 +22805,17 @@ var SideContainer = function (_React$Component) {
   function SideContainer(props) {
     _classCallCheck(this, SideContainer);
 
-    // this.state = {
-    //   hasClass: false
-    // }
     var _this = _possibleConstructorReturn(this, (SideContainer.__proto__ || Object.getPrototypeOf(SideContainer)).call(this, props));
 
     _this.handleTeamKeyAfterClick = function (event) {
       if (typeof _this.props.teamKey === "function") {
         _this.props.teamKey(event.currentTarget.dataset.key);
       }
-      // this.setState({
-      //   hasClass: !this.state.hasClass
-      // })
-      // if(this.state.hasClass) {
-      //   event.currentTarget.className = "Logos Active"
-      // } else {
-      //   event.currentTarget.className = "Logos"
-      // }
+      var logosElems = document.querySelectorAll(".Logos");
+      logosElems.forEach(function (element) {
+        element.classList.remove("Active");
+      });
+      event.currentTarget.className = "Logos Active";
     };
 
     return _this;
@@ -22855,7 +22860,7 @@ exports.default = SideContainer;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -22885,97 +22890,126 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var MiddleContainer = function (_React$Component) {
-    _inherits(MiddleContainer, _React$Component);
+  _inherits(MiddleContainer, _React$Component);
 
-    function MiddleContainer(props) {
-        _classCallCheck(this, MiddleContainer);
+  function MiddleContainer(props) {
+    _classCallCheck(this, MiddleContainer);
 
-        var _this = _possibleConstructorReturn(this, (MiddleContainer.__proto__ || Object.getPrototypeOf(MiddleContainer)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (MiddleContainer.__proto__ || Object.getPrototypeOf(MiddleContainer)).call(this, props));
 
-        _this.handlePlayer = function (playerID) {
+    _this.handlePlayer = function (playerID) {
+      _this.setState({
+        playerID: playerID,
+        player: []
+      }, function () {
+        _this.state.roster.map(function (player) {
+          if (player.PlayerID == _this.state.playerID) {
             _this.setState({
-                playerID: playerID,
-                player: []
-            }, function () {
-                _this.state.roster.map(function (player) {
-                    if (player.PlayerID == _this.state.playerID) {
-                        _this.setState({
-                            player: player
-                        });
-                    }
-                });
+              player: player
             });
-        };
+          }
+        });
+      });
+    };
 
-        _this.state = {
-            roster: [],
-            playerID: "",
-            player: []
-        };
+    _this.Sorting = function (objName) {
+      var tempArr = _this.state.roster;
+      tempArr.sort(function (a, b) {
+        if (a[objName] < b[objName]) return -1;
+        if (a[objName] > b[objName]) return 1;
+        return 0;
+      });
+      // for(let i = 0; i < arr.length; i++){
+      //     for (let j = i + 1; j < arr.length; j++){
+      //         if (arr[i][objName] > arr[j][objName]){
+      //             let tempData = arr[i]
+      //             arr[i] = arr[j]
+      //             arr[j] = tempData
+      //         }
+      //     }
+      // }
 
-        return _this;
+      _this.setState({
+        roster: tempArr
+      });
+    };
+
+    _this.state = {
+      roster: [],
+      playerID: "",
+      player: []
+    };
+    return _this;
+  }
+
+  _createClass(MiddleContainer, [{
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      var _this2 = this;
+
+      if (nextProps.chosenTeam == "") {
+        return false;
+      } else if (nextProps.chosenTeam !== "" && nextProps.chosenTeam !== this.props.chosenTeam) {
+        this.setState({
+          roster: "Loading",
+          playerID: "",
+          player: []
+        }, function () {
+          var playersBaseURL = "https://api.fantasydata.net/v3/nba/stats/JSON/Players/" + nextProps.chosenTeam;
+          var keyURL = "b6098a2ffbe14e6ea478123779c4cb6d";
+
+          fetch(playersBaseURL, {
+            headers: {
+              "Ocp-Apim-Subscription-Key": keyURL
+            }
+          }).then(function (response) {
+            return response.json();
+          }).then(function (data) {
+            _this2.setState({
+              roster: data
+            });
+          }).catch(function (error) {
+            console.log(error);
+          });
+        });
+      }
     }
-
-    _createClass(MiddleContainer, [{
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(nextProps) {
-            var _this2 = this;
-
-            if (nextProps.chosenTeam == "") {
-                return false;
-            } else if (nextProps.chosenTeam !== "" && nextProps.chosenTeam !== this.props.chosenTeam) {
-                this.setState({
-                    roster: "Loading",
-                    playerID: "",
-                    player: []
-                }, function () {
-                    var playersBaseURL = 'https://api.fantasydata.net/v3/nba/stats/JSON/Players/' + nextProps.chosenTeam;
-                    var keyURL = "b6098a2ffbe14e6ea478123779c4cb6d";
-
-                    fetch(playersBaseURL, {
-                        headers: {
-                            "Ocp-Apim-Subscription-Key": keyURL
-                        }
-                    }).then(function (response) {
-                        return response.json();
-                    }).then(function (data) {
-                        _this2.setState({
-                            roster: data
-                        });
-                    }).catch(function (error) {
-                        console.log(error);
-                    });
-                });
-            }
+  }, {
+    key: "render",
+    value: function render() {
+      var renderComponent = void 0;
+      if (this.state.roster === "Loading") {
+        renderComponent = _react2.default.createElement(_Loader2.default, null);
+      } else if (this.state.roster.length !== 0) {
+        renderComponent = _react2.default.createElement(_TableRoster2.default, {
+          rosterData: this.state.roster,
+          playerData: this.handlePlayer,
+          tableSort: this.Sorting
+        });
+        if (this.state.player.length !== 0) {
+          renderComponent = _react2.default.createElement(
+            "div",
+            null,
+            _react2.default.createElement(_TableRoster2.default, {
+              rosterData: this.state.roster,
+              playerData: this.handlePlayer,
+              tableSort: this.Sorting
+            }),
+            _react2.default.createElement(_BottomContainer2.default, { player: this.state.player })
+          );
         }
-    }, {
-        key: 'render',
-        value: function render() {
-            var renderComponent = void 0;
-            if (this.state.roster === "Loading") {
-                renderComponent = _react2.default.createElement(_Loader2.default, null);
-            } else if (this.state.roster.length !== 0) {
-                renderComponent = _react2.default.createElement(_TableRoster2.default, { rosterData: this.state.roster, playerData: this.handlePlayer });
-                if (this.state.player.length !== 0) {
-                    renderComponent = _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(_TableRoster2.default, { rosterData: this.state.roster, playerData: this.handlePlayer }),
-                        _react2.default.createElement(_BottomContainer2.default, { player: this.state.player })
-                    );
-                }
-            } else {
-                renderComponent = null;
-            }
-            return _react2.default.createElement(
-                'div',
-                { className: 'MiddleContainer' },
-                renderComponent
-            );
-        }
-    }]);
+      } else {
+        renderComponent = null;
+      }
+      return _react2.default.createElement(
+        "div",
+        { className: "MiddleContainer" },
+        renderComponent
+      );
+    }
+  }]);
 
-    return MiddleContainer;
+  return MiddleContainer;
 }(_react2.default.Component);
 
 exports.default = MiddleContainer;
@@ -23019,6 +23053,13 @@ var TableRoster = function (_React$Component) {
       }
     };
 
+    _this.tableSort = function (event) {
+      var objName = event.currentTarget.dataset.objname;
+      if (typeof _this.props.tableSort === "function") {
+        _this.props.tableSort(objName);
+      }
+    };
+
     return _this;
   }
 
@@ -23038,22 +23079,22 @@ var TableRoster = function (_React$Component) {
             null,
             _react2.default.createElement(
               "th",
-              null,
+              { "data-objname": "Jersey", onClick: this.tableSort },
               "#"
             ),
             _react2.default.createElement(
               "th",
-              null,
+              { "data-objname": "FirstName", onClick: this.tableSort },
               "Imi\u0119"
             ),
             _react2.default.createElement(
               "th",
-              null,
+              { "data-objname": "LastName", onClick: this.tableSort },
               "Nazwisko"
             ),
             _react2.default.createElement(
               "th",
-              null,
+              { "data-objname": "Position", onClick: this.tableSort },
               "Pozycja"
             )
           )
@@ -23205,6 +23246,11 @@ var BottomContainer = function (_React$Component) {
                     changeClassCard: ""
                 });
             }, 3000);
+        }
+    }, {
+        key: "componentWillUnmount",
+        value: function componentWillUnmount() {
+            clearInterval(this.intervalID);
         }
     }, {
         key: "render",
@@ -23365,7 +23411,7 @@ exports = module.exports = __webpack_require__(194)(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Kalam);", ""]);
 
 // module
-exports.push([module.i, "* {\n  font-family: \"Kalam\", cursive;\n  box-sizing: border-box; }\n\nbody {\n  background-image: url(\"http://3.bp.blogspot.com/-VS4_8uqmrfw/VjvJ_JdY5OI/AAAAAAAAh4M/rVKIkPktjO4/s1600/hd-quality-basketball-court-wallpaper-20587-1600x900px-hd.jpg\");\n  background-repeat: no-repeat;\n  background-size: cover; }\n\n.MainContainer {\n  display: flex;\n  width: 90vw;\n  justify-content: space-between;\n  margin-top: 5vh;\n  margin-right: 5vw;\n  margin-left: 5vw; }\n\n.SideContainer {\n  display: flex;\n  flex-wrap: wrap;\n  width: 30vw;\n  height: 50vh;\n  justify-content: space-around; }\n\n.MiddleContainer {\n  width: 40vw;\n  position: relative; }\n\n.PlayersTable {\n  border-collapse: collapse;\n  font-size: 16px;\n  text-align: center;\n  margin: 0 auto;\n  border-radius: 15px;\n  background-color: #d1d1d1; }\n  .PlayersTable thead th {\n    padding: 1em;\n    border-bottom: 1px solid black;\n    cursor: pointer; }\n  .PlayersTable tbody tr {\n    border-bottom: 1px solid black; }\n    .PlayersTable tbody tr:last-child {\n      border-bottom: none; }\n    .PlayersTable tbody tr:hover {\n      cursor: pointer;\n      background-color: #bebebe;\n      font-weight: bold; }\n    .PlayersTable tbody tr td {\n      padding: 0.5em; }\n\n.PlayerCard {\n  width: 20vw;\n  background-color: #34495e;\n  background-image: url(\"https://i1.wp.com/sflbasketball.com/wp-content/uploads/2014/09/background-basketball-court.jpg?ssl=1\");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  border: 1px solid black;\n  border-radius: 20px;\n  margin: 0 auto;\n  margin-top: -39em;\n  margin-left: 8vw;\n  position: absolute; }\n  .PlayerCard button {\n    display: block;\n    margin-left: auto;\n    margin-right: 10px;\n    margin-top: 10px;\n    padding: 0.35em 1.2em;\n    border: 0.1em solid black;\n    border-radius: 0.12em;\n    text-decoration: none;\n    font-weight: 300;\n    color: black;\n    text-align: center;\n    transition: all 0.2s; }\n    .PlayerCard button:hover {\n      cursor: pointer;\n      color: #000000;\n      background-color: #ffffff; }\n\n.PlayerFoto {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0 auto; }\n\n.PlayerInfo {\n  text-align: center; }\n  .PlayerInfo p {\n    font-size: 20px; }\n\n.Logos {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0.8em;\n  border: 1px solid black;\n  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, 0.24); }\n  .Logos:hover {\n    cursor: pointer;\n    transform: scale(2, 2);\n    transition: 0.3s transform;\n    box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22); }\n\n.Active {\n  transform: scale(2, 2); }\n\n.Loader {\n  margin: 0 auto;\n  margin-top: 40%;\n  border: 16px solid #f3f3f3;\n  border-top: 16px solid #34495e;\n  border-radius: 50%;\n  width: 120px;\n  height: 120px;\n  animation: spin 2s linear infinite; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.bounceInDown {\n  -webkit-animation-name: bounceInDown;\n  animation-name: bounceInDown;\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both; }\n\n@-webkit-keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n\n@keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n", ""]);
+exports.push([module.i, "* {\n  font-family: \"Kalam\", cursive;\n  box-sizing: border-box; }\n\nbody {\n  background-image: url(\"http://3.bp.blogspot.com/-VS4_8uqmrfw/VjvJ_JdY5OI/AAAAAAAAh4M/rVKIkPktjO4/s1600/hd-quality-basketball-court-wallpaper-20587-1600x900px-hd.jpg\");\n  background-repeat: no-repeat;\n  background-size: cover; }\n\n.MainContainer {\n  display: flex;\n  width: 90vw;\n  justify-content: space-between;\n  margin-top: 5vh;\n  margin-right: 5vw;\n  margin-left: 5vw; }\n\n.SideContainer {\n  display: flex;\n  flex-wrap: wrap;\n  width: 30vw;\n  height: 50vh;\n  justify-content: space-around; }\n\n.MiddleContainer {\n  width: 40vw;\n  position: relative; }\n\n.PlayersTable {\n  border-collapse: collapse;\n  font-size: 16px;\n  text-align: center;\n  margin: 0 auto;\n  border-radius: 15px;\n  background-color: #d1d1d1; }\n  .PlayersTable thead th {\n    padding: 1em;\n    border-bottom: 1px solid black;\n    cursor: pointer; }\n  .PlayersTable tbody tr {\n    border-bottom: 1px solid black; }\n    .PlayersTable tbody tr:last-child {\n      border-bottom: none; }\n    .PlayersTable tbody tr:hover {\n      cursor: pointer;\n      background-color: #bebebe;\n      font-weight: bold; }\n    .PlayersTable tbody tr td {\n      padding: 0.35em; }\n\n.PlayerCard {\n  width: 20vw;\n  background-color: #34495e;\n  background-image: url(\"https://i1.wp.com/sflbasketball.com/wp-content/uploads/2014/09/background-basketball-court.jpg?ssl=1\");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  border: 1px solid black;\n  border-radius: 20px;\n  margin: 0 auto;\n  margin-top: -35em;\n  margin-left: 8vw;\n  position: absolute; }\n  .PlayerCard button {\n    display: block;\n    margin-left: auto;\n    margin-right: 10px;\n    margin-top: 10px;\n    padding: 0.35em 1.2em;\n    border: 0.1em solid black;\n    border-radius: 0.12em;\n    text-decoration: none;\n    font-weight: 300;\n    color: black;\n    text-align: center;\n    transition: all 0.2s; }\n    .PlayerCard button:hover {\n      cursor: pointer;\n      color: #000000;\n      background-color: #ffffff; }\n\n.PlayerFoto {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0 auto; }\n\n.PlayerInfo {\n  text-align: center; }\n  .PlayerInfo p {\n    font-size: 20px; }\n\n.Logos {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0.8em;\n  border: 1px solid black;\n  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, 0.24); }\n  .Logos:hover {\n    cursor: pointer;\n    transform: scale(2, 2);\n    transition: 0.3s transform;\n    box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22); }\n\n.Active {\n  transform: scale(2, 2); }\n\n.Loader {\n  margin: 0 auto;\n  margin-top: 40%;\n  border: 16px solid #f3f3f3;\n  border-top: 16px solid #34495e;\n  border-radius: 50%;\n  width: 120px;\n  height: 120px;\n  animation: spin 2s linear infinite; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.bounceInDown {\n  -webkit-animation-name: bounceInDown;\n  animation-name: bounceInDown;\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both; }\n\n@-webkit-keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n\n@keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n\n.News {\n  width: 60vw;\n  background-color: #d1d1d1;\n  color: black;\n  position: absolute;\n  top: 80vh;\n  right: 19vw;\n  text-align: center;\n  font-size: 22px;\n  border-radius: 15px;\n  padding-right: 15px;\n  padding-left: 15px; }\n  .News h3 {\n    margin: 5px; }\n  .News p {\n    font-size: 15px;\n    margin: 5px; }\n", ""]);
 
 // exports
 
@@ -23928,6 +23974,123 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
+
+/***/ }),
+/* 197 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(14);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NewsContainer = function (_React$Component) {
+  _inherits(NewsContainer, _React$Component);
+
+  function NewsContainer(props) {
+    _classCallCheck(this, NewsContainer);
+
+    var _this = _possibleConstructorReturn(this, (NewsContainer.__proto__ || Object.getPrototypeOf(NewsContainer)).call(this, props));
+
+    _this.getData = function () {
+      var newsBaseURL = "https://api.fantasydata.net/v3/nba/scores/JSON/News";
+      var keyURL = "b6098a2ffbe14e6ea478123779c4cb6d";
+
+      fetch(newsBaseURL, {
+        headers: {
+          "Ocp-Apim-Subscription-Key": keyURL
+        }
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this.setState({
+          newsData: data
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    };
+
+    _this.state = {
+      newsData: null,
+      newsIndex: 0
+    };
+    return _this;
+  }
+
+  _createClass(NewsContainer, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.getData();
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.intervalID = setInterval(function () {
+        if (_this2.state.newsIndex === _this2.state.newsData.length - 1) {
+          _this2.setState({
+            newsIndex: 0
+          });
+        } else {
+          _this2.setState({
+            newsIndex: _this2.state.newsIndex + 1
+          });
+        }
+      }, 5000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.intervalID);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (!this.state.newsData) {
+        return _react2.default.createElement("div", null);
+      } else {
+        return _react2.default.createElement(
+          "div",
+          { className: "News" },
+          _react2.default.createElement(
+            "h3",
+            null,
+            "News"
+          ),
+          this.state.newsData[this.state.newsIndex].Content.replace(/&quot;/g, "'"),
+          _react2.default.createElement(
+            "p",
+            null,
+            "Source: ",
+            this.state.newsData[this.state.newsIndex].Source
+          )
+        );
+      }
+    }
+  }]);
+
+  return NewsContainer;
+}(_react2.default.Component);
+
+exports.default = NewsContainer;
 
 /***/ })
 /******/ ]);
