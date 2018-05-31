@@ -538,7 +538,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 var _prodInvariant = __webpack_require__(3);
 
-var DOMProperty = __webpack_require__(13);
+var DOMProperty = __webpack_require__(14);
 var ReactDOMComponentFlags = __webpack_require__(57);
 
 var invariant = __webpack_require__(1);
@@ -1779,6 +1779,16 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(17);
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1986,16 +1996,6 @@ var DOMProperty = {
 
 module.exports = DOMProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(17);
-
 
 /***/ }),
 /* 15 */
@@ -7859,7 +7859,7 @@ module.exports = CSSProperty;
 
 
 
-var DOMProperty = __webpack_require__(13);
+var DOMProperty = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstrumentation = __webpack_require__(8);
 
@@ -9036,7 +9036,7 @@ module.exports = getActiveElement;
 var _prodInvariant = __webpack_require__(3);
 
 var DOMLazyTree = __webpack_require__(20);
-var DOMProperty = __webpack_require__(13);
+var DOMProperty = __webpack_require__(14);
 var React = __webpack_require__(17);
 var ReactBrowserEventEmitter = __webpack_require__(32);
 var ReactCurrentOwner = __webpack_require__(10);
@@ -10082,7 +10082,7 @@ module.exports = __webpack_require__(84);
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -10102,7 +10102,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var sass = __webpack_require__(192);
+var sass = __webpack_require__(193);
 
 document.addEventListener('DOMContentLoaded', function () {
     var App = function (_React$Component) {
@@ -14691,7 +14691,7 @@ module.exports = EnterLeaveEventPlugin;
 
 
 
-var DOMProperty = __webpack_require__(13);
+var DOMProperty = __webpack_require__(14);
 
 var MUST_USE_PROPERTY = DOMProperty.injection.MUST_USE_PROPERTY;
 var HAS_BOOLEAN_VALUE = DOMProperty.injection.HAS_BOOLEAN_VALUE;
@@ -15375,7 +15375,7 @@ var AutoFocusUtils = __webpack_require__(126);
 var CSSPropertyOperations = __webpack_require__(127);
 var DOMLazyTree = __webpack_require__(20);
 var DOMNamespaces = __webpack_require__(40);
-var DOMProperty = __webpack_require__(13);
+var DOMProperty = __webpack_require__(14);
 var DOMPropertyOperations = __webpack_require__(69);
 var EventPluginHub = __webpack_require__(22);
 var EventPluginRegistry = __webpack_require__(27);
@@ -20330,7 +20330,7 @@ module.exports = getUnboundedScrollPosition;
 
 
 
-var DOMProperty = __webpack_require__(13);
+var DOMProperty = __webpack_require__(14);
 var EventPluginHub = __webpack_require__(22);
 var EventPluginUtils = __webpack_require__(34);
 var ReactComponentEnvironment = __webpack_require__(43);
@@ -22432,7 +22432,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 
-var DOMProperty = __webpack_require__(13);
+var DOMProperty = __webpack_require__(14);
 var EventPluginRegistry = __webpack_require__(27);
 var ReactComponentTreeHook = __webpack_require__(7);
 
@@ -22595,7 +22595,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 
 
 
-var DOMProperty = __webpack_require__(13);
+var DOMProperty = __webpack_require__(14);
 var ReactComponentTreeHook = __webpack_require__(7);
 
 var warning = __webpack_require__(2);
@@ -22690,7 +22690,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -22702,7 +22702,7 @@ var _MiddleContainer = __webpack_require__(188);
 
 var _MiddleContainer2 = _interopRequireDefault(_MiddleContainer);
 
-var _NewsContainer = __webpack_require__(197);
+var _NewsContainer = __webpack_require__(192);
 
 var _NewsContainer2 = _interopRequireDefault(_NewsContainer);
 
@@ -22787,7 +22787,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -22865,7 +22865,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -23027,7 +23027,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -23155,7 +23155,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -23201,7 +23201,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -23356,8 +23356,125 @@ exports.default = BottomContainer;
 /* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
 
-var content = __webpack_require__(193);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(13);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NewsContainer = function (_React$Component) {
+  _inherits(NewsContainer, _React$Component);
+
+  function NewsContainer(props) {
+    _classCallCheck(this, NewsContainer);
+
+    var _this = _possibleConstructorReturn(this, (NewsContainer.__proto__ || Object.getPrototypeOf(NewsContainer)).call(this, props));
+
+    _this.getData = function () {
+      var newsBaseURL = "https://api.fantasydata.net/v3/nba/scores/JSON/News";
+      var keyURL = "b6098a2ffbe14e6ea478123779c4cb6d";
+
+      fetch(newsBaseURL, {
+        headers: {
+          "Ocp-Apim-Subscription-Key": keyURL
+        }
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this.setState({
+          newsData: data
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    };
+
+    _this.state = {
+      newsData: null,
+      newsIndex: 0
+    };
+    return _this;
+  }
+
+  _createClass(NewsContainer, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.getData();
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.intervalID = setInterval(function () {
+        if (_this2.state.newsIndex === _this2.state.newsData.length - 1) {
+          _this2.setState({
+            newsIndex: 0
+          });
+        } else {
+          _this2.setState({
+            newsIndex: _this2.state.newsIndex + 1
+          });
+        }
+      }, 5000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.intervalID);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (!this.state.newsData) {
+        return _react2.default.createElement("div", null);
+      } else {
+        return _react2.default.createElement(
+          "div",
+          { className: "News" },
+          _react2.default.createElement(
+            "h3",
+            null,
+            "News"
+          ),
+          this.state.newsData[this.state.newsIndex].Content.replace(/&quot;/g, "'"),
+          _react2.default.createElement(
+            "p",
+            null,
+            "Source: ",
+            this.state.newsData[this.state.newsIndex].Source
+          )
+        );
+      }
+    }
+  }]);
+
+  return NewsContainer;
+}(_react2.default.Component);
+
+exports.default = NewsContainer;
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(194);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -23371,7 +23488,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(195)(content, options);
+var update = __webpack_require__(196)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -23403,21 +23520,21 @@ if(false) {
 }
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(194)(false);
+exports = module.exports = __webpack_require__(195)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Kalam);", ""]);
 
 // module
-exports.push([module.i, "* {\n  font-family: \"Kalam\", cursive;\n  box-sizing: border-box; }\n\nbody {\n  background-image: url(\"http://3.bp.blogspot.com/-VS4_8uqmrfw/VjvJ_JdY5OI/AAAAAAAAh4M/rVKIkPktjO4/s1600/hd-quality-basketball-court-wallpaper-20587-1600x900px-hd.jpg\");\n  background-repeat: no-repeat;\n  background-size: cover; }\n\n.MainContainer {\n  display: flex;\n  width: 90vw;\n  justify-content: space-between;\n  margin-top: 5vh;\n  margin-right: 5vw;\n  margin-left: 5vw; }\n\n.SideContainer {\n  display: flex;\n  flex-wrap: wrap;\n  width: 30vw;\n  height: 50vh;\n  justify-content: space-around; }\n\n.MiddleContainer {\n  width: 40vw;\n  position: relative; }\n\n.PlayersTable {\n  border-collapse: collapse;\n  font-size: 16px;\n  text-align: center;\n  margin: 0 auto;\n  border-radius: 15px;\n  background-color: #d1d1d1; }\n  .PlayersTable thead th {\n    padding: 1em;\n    border-bottom: 1px solid black;\n    cursor: pointer; }\n  .PlayersTable tbody tr {\n    border-bottom: 1px solid black; }\n    .PlayersTable tbody tr:last-child {\n      border-bottom: none; }\n    .PlayersTable tbody tr:hover {\n      cursor: pointer;\n      background-color: #bebebe;\n      font-weight: bold; }\n    .PlayersTable tbody tr td {\n      padding: 0.35em; }\n\n.PlayerCard {\n  width: 20vw;\n  background-color: #34495e;\n  background-image: url(\"https://i1.wp.com/sflbasketball.com/wp-content/uploads/2014/09/background-basketball-court.jpg?ssl=1\");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  border: 1px solid black;\n  border-radius: 20px;\n  margin: 0 auto;\n  margin-top: -35em;\n  margin-left: 8vw;\n  position: absolute; }\n  .PlayerCard button {\n    display: block;\n    margin-left: auto;\n    margin-right: 10px;\n    margin-top: 10px;\n    padding: 0.35em 1.2em;\n    border: 0.1em solid black;\n    border-radius: 0.12em;\n    text-decoration: none;\n    font-weight: 300;\n    color: black;\n    text-align: center;\n    transition: all 0.2s; }\n    .PlayerCard button:hover {\n      cursor: pointer;\n      color: #000000;\n      background-color: #ffffff; }\n\n.PlayerFoto {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0 auto; }\n\n.PlayerInfo {\n  text-align: center; }\n  .PlayerInfo p {\n    font-size: 20px; }\n\n.Logos {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0.8em;\n  border: 1px solid black;\n  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, 0.24); }\n  .Logos:hover {\n    cursor: pointer;\n    transform: scale(2, 2);\n    transition: 0.3s transform;\n    box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22); }\n\n.Active {\n  transform: scale(2, 2); }\n\n.Loader {\n  margin: 0 auto;\n  margin-top: 40%;\n  border: 16px solid #f3f3f3;\n  border-top: 16px solid #34495e;\n  border-radius: 50%;\n  width: 120px;\n  height: 120px;\n  animation: spin 2s linear infinite; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.bounceInDown {\n  -webkit-animation-name: bounceInDown;\n  animation-name: bounceInDown;\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both; }\n\n@-webkit-keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n\n@keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n\n.News {\n  width: 60vw;\n  background-color: #d1d1d1;\n  color: black;\n  position: absolute;\n  top: 80vh;\n  right: 19vw;\n  text-align: center;\n  font-size: 22px;\n  border-radius: 15px;\n  padding-right: 15px;\n  padding-left: 15px; }\n  .News h3 {\n    margin: 5px; }\n  .News p {\n    font-size: 15px;\n    margin: 5px; }\n", ""]);
+exports.push([module.i, "* {\n  font-family: \"Kalam\", cursive;\n  box-sizing: border-box; }\n\nbody {\n  background-image: url(\"http://3.bp.blogspot.com/-VS4_8uqmrfw/VjvJ_JdY5OI/AAAAAAAAh4M/rVKIkPktjO4/s1600/hd-quality-basketball-court-wallpaper-20587-1600x900px-hd.jpg\");\n  background-repeat: no-repeat;\n  background-size: cover; }\n\n.MainContainer {\n  display: flex;\n  width: 90vw;\n  justify-content: space-between;\n  margin-top: 5vh;\n  margin-right: 5vw;\n  margin-left: 5vw; }\n\n.SideContainer {\n  display: flex;\n  flex-wrap: wrap;\n  width: 30vw;\n  height: 30vh;\n  justify-content: space-around; }\n\n.MiddleContainer {\n  width: 40vw;\n  position: relative; }\n\n.PlayersTable {\n  border-collapse: collapse;\n  font-size: 16px;\n  text-align: center;\n  margin: 0 auto;\n  border-radius: 15px;\n  background-color: #d1d1d1; }\n  .PlayersTable thead th {\n    padding: 1em;\n    border-bottom: 1px solid black;\n    cursor: pointer; }\n  .PlayersTable tbody tr {\n    border-bottom: 1px solid black; }\n    .PlayersTable tbody tr:last-child {\n      border-bottom: none; }\n    .PlayersTable tbody tr:hover {\n      cursor: pointer;\n      background-color: #bebebe;\n      font-weight: bold; }\n    .PlayersTable tbody tr td {\n      padding: 0.35em; }\n\n.PlayerCard {\n  width: 20vw;\n  background-color: #34495e;\n  background-image: url(\"https://i1.wp.com/sflbasketball.com/wp-content/uploads/2014/09/background-basketball-court.jpg?ssl=1\");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  border: 1px solid black;\n  border-radius: 20px;\n  margin: 0 auto;\n  margin-top: -29em;\n  margin-left: 8vw;\n  position: absolute; }\n  .PlayerCard button {\n    display: block;\n    margin-left: auto;\n    margin-right: 10px;\n    margin-top: 10px;\n    padding: 0.35em 1.2em;\n    border: 0.1em solid black;\n    border-radius: 0.12em;\n    text-decoration: none;\n    font-weight: 300;\n    color: black;\n    text-align: center;\n    transition: all 0.2s; }\n    .PlayerCard button:hover {\n      cursor: pointer;\n      color: #000000;\n      background-color: #ffffff; }\n\n.PlayerFoto {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0 auto; }\n\n.PlayerInfo {\n  text-align: center; }\n  .PlayerInfo p {\n    font-size: 20px; }\n\n.Logos {\n  width: 80px;\n  height: 80px;\n  background-color: white;\n  background-image: url(\"\");\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin: 0.8em;\n  border: 1px solid black;\n  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, 0.24); }\n  .Logos:hover {\n    cursor: pointer;\n    transform: scale(2, 2);\n    transition: 0.3s transform;\n    box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22); }\n\n.Active {\n  transform: scale(2, 2); }\n\n.Loader {\n  margin: 0 auto;\n  margin-top: 40%;\n  border: 16px solid #f3f3f3;\n  border-top: 16px solid #34495e;\n  border-radius: 50%;\n  width: 120px;\n  height: 120px;\n  animation: spin 2s linear infinite; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.bounceInDown {\n  -webkit-animation-name: bounceInDown;\n  animation-name: bounceInDown;\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both; }\n\n@-webkit-keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n\n@keyframes bounceInDown {\n  0%,\n  60%,\n  75%,\n  90%,\n  100% {\n    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0); }\n  100% {\n    -webkit-transform: none;\n    transform: none; } }\n\n.News {\n  width: 60vw;\n  background-color: #d1d1d1;\n  color: black;\n  position: absolute;\n  top: 83vh;\n  right: 19vw;\n  text-align: center;\n  font-size: 16px;\n  border-radius: 15px;\n  padding-right: 15px;\n  padding-left: 15px; }\n  .News h3 {\n    margin: 5px; }\n  .News p {\n    font-size: 15px;\n    margin: 5px; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports) {
 
 /*
@@ -23499,7 +23616,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -23565,7 +23682,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(196);
+var	fixUrls = __webpack_require__(197);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -23881,7 +23998,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports) {
 
 
@@ -23974,123 +24091,6 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
-
-/***/ }),
-/* 197 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(14);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var NewsContainer = function (_React$Component) {
-  _inherits(NewsContainer, _React$Component);
-
-  function NewsContainer(props) {
-    _classCallCheck(this, NewsContainer);
-
-    var _this = _possibleConstructorReturn(this, (NewsContainer.__proto__ || Object.getPrototypeOf(NewsContainer)).call(this, props));
-
-    _this.getData = function () {
-      var newsBaseURL = "https://api.fantasydata.net/v3/nba/scores/JSON/News";
-      var keyURL = "b6098a2ffbe14e6ea478123779c4cb6d";
-
-      fetch(newsBaseURL, {
-        headers: {
-          "Ocp-Apim-Subscription-Key": keyURL
-        }
-      }).then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        _this.setState({
-          newsData: data
-        });
-      }).catch(function (error) {
-        console.log(error);
-      });
-    };
-
-    _this.state = {
-      newsData: null,
-      newsIndex: 0
-    };
-    return _this;
-  }
-
-  _createClass(NewsContainer, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      this.getData();
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      this.intervalID = setInterval(function () {
-        if (_this2.state.newsIndex === _this2.state.newsData.length - 1) {
-          _this2.setState({
-            newsIndex: 0
-          });
-        } else {
-          _this2.setState({
-            newsIndex: _this2.state.newsIndex + 1
-          });
-        }
-      }, 5000);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      clearInterval(this.intervalID);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      if (!this.state.newsData) {
-        return _react2.default.createElement("div", null);
-      } else {
-        return _react2.default.createElement(
-          "div",
-          { className: "News" },
-          _react2.default.createElement(
-            "h3",
-            null,
-            "News"
-          ),
-          this.state.newsData[this.state.newsIndex].Content.replace(/&quot;/g, "'"),
-          _react2.default.createElement(
-            "p",
-            null,
-            "Source: ",
-            this.state.newsData[this.state.newsIndex].Source
-          )
-        );
-      }
-    }
-  }]);
-
-  return NewsContainer;
-}(_react2.default.Component);
-
-exports.default = NewsContainer;
 
 /***/ })
 /******/ ]);

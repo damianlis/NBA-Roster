@@ -24,7 +24,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 30vw;
-  height: 50vh;
+  height: 30vh;
   justify-content: space-around;
 }
 
@@ -71,7 +71,7 @@ body {
   border: 1px solid black;
   border-radius: 20px;
   margin: 0 auto;
-  margin-top: -35em;
+  margin-top: -29em;
   margin-left: 8vw;
   position: absolute;
   button {
@@ -115,8 +115,8 @@ body {
 }
 
 .Logos {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-color: white;
   background-image: url("");
   background-size: contain;
@@ -248,10 +248,10 @@ body {
   background-color: rgb(209, 209, 209);
   color: black;
   position: absolute;
-  top: 80vh;
+  top: 83vh;
   right: 19vw;
   text-align: center;
-  font-size: 22px;
+  font-size: 16px;
   border-radius: 15px;
   padding-right: 15px;
   padding-left: 15px;
